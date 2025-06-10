@@ -14,7 +14,8 @@ public class Solicitador {
             }
         } while (texto.length() < longitudMinima);
         sc.close();
-        return texto;
+        return texto = texto.toUpperCase().replace(" ", "_");
+
     }
 }
 
