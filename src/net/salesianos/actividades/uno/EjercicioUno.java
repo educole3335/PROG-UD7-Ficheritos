@@ -25,9 +25,13 @@ public class EjercicioUno {
         }
     }
 
-    public static void crearYEscribirArchivo() throws IOException {
+    public static void crearYEscribirArchivo() {
         String texto = Solicitador.solicitarTextoConLongitudMinima(30);
-        escribirFichero("files/ficherito.txt", texto);
+        try {
+            escribirFichero("files/ficherito.txt", texto);
+        } catch (IOException e) {
+            System.err.println("Error al escribir el archivo: " + e.getMessage());
+        }
     }
 
     public static void escribirFichero(String nombreFichero, String texto) throws IOException {
@@ -37,6 +41,9 @@ public class EjercicioUno {
         }
         try (FileWriter fw = new FileWriter(fichero)) {
             fw.write(texto);
+        } catch (IOException e) {
+            throw new IOException("Error al escribir el archivo: " + e.getMessage(), e);
         }
     }
 }
+

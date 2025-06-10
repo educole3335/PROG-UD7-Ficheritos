@@ -8,15 +8,16 @@ import java.util.List;
 
 public class EjercicioTres {
 
-    public static List<String> combinarFicheros(File ficherito, File ficherito2, File ficherito3) throws IOException {
+    public static List<String> combinarFicheros(File ficherito, File ficherito2, File ficherito3) {
         List<String> lineas = new ArrayList<>();
 
-        lineas.add("- Contenido del Fichero Uno: ");
-        lineas.addAll(Files.readAllLines(ficherito.toPath()));
-        lineas.add("- Contenido del Fichero Dos: ");
-        lineas.addAll(Files.readAllLines(ficherito2.toPath()));
+        try {
+            lineas.add("- Contenido del Fichero Uno: ");
+            lineas.addAll(Files.readAllLines(ficherito.toPath()));
+            lineas.add("- Contenido del Fichero Dos: ");
+            lineas.addAll(Files.readAllLines(ficherito2.toPath()));
 
-        lineas.add("\n\nFirma:\r\n" + //
+            lineas.add("\n\nFirma:\r\n" + //
                         "░█████╗░██████╗░██████╗░██╗░█████╗░███╗░░██╗\r\n" + //
                         "██╔══██╗██╔══██╗██╔══██╗██║██╔══██╗████╗░██║\r\n" + //
                         "███████║██║░░██║██████╔╝██║███████║██╔██╗██║\r\n" + //
@@ -68,7 +69,11 @@ public class EjercicioTres {
     "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠛⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀\r\n" 
         );
 
-        Files.write(ficherito3.toPath(), lineas);
+            Files.write(ficherito3.toPath(), lineas);
+        } catch (IOException e) {
+            System.err.println("No se ha podido leer/escrbir el fichero");
+            e.printStackTrace();
+        }
 
         return lineas;
     }
