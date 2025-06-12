@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class EjercicioUno {
-    public class Solicitador {
+
+    public static class Solicitador {
 
         public static String solicitarTextoConLongitudMinima(int longitudMinima) {
             Scanner sc = new Scanner(System.in);
@@ -19,9 +20,7 @@ public class EjercicioUno {
                             + (longitudMinima - texto.length()));
                 }
             } while (texto.length() < longitudMinima);
-            sc.close();
             return texto.toUpperCase().replace(" ", "_");
-
         }
     }
 
@@ -46,4 +45,5 @@ public class EjercicioUno {
         }
     }
 }
+
 

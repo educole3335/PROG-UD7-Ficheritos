@@ -19,12 +19,16 @@ public class EjercicioDos {
     }
 
     private static void mostrarContenidoFicheroConDecimal(String contenido, StringBuilder resultado) {
+        // Itera sobre cada carater del contenido del fichero
         for (char c : contenido.toCharArray()) {
+            // Si no es el primer caracter, agrega una coma y un espacio
             if (resultado.length() > 0) {
                 resultado.append(", ");
             }
+            // Agrega el caracter y su valor numerico en decimal separado por un guion bajo
             resultado.append(c).append("_").append((int) c);
         }
     }
 }
+
 

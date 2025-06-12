@@ -1,16 +1,26 @@
 package net.salesianos.actividades.cuatro;
+import java.io.Serializable;
 
-public class Mesa {
+public class Mesa implements Serializable {
     private String color;
-    private int numPatas;
+    private int numeroPatas;
 
-    public Mesa(String color, int numPatas) {
+    public Mesa(String color, int numeroPatas) {
         this.color = color;
-        this.numPatas = numPatas;
+        this.numeroPatas = numeroPatas;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public int getNumeroPatas() {
+        return numeroPatas;
     }
 
     @Override
     public String toString() {
-        return String.format("Mesa de color %s con %d patas", color, numPatas);
+        return "Mesa [Color: " + color + ", Número de patas: " + numeroPatas + "]";
     }
 }
+
